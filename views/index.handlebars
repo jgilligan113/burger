@@ -1,0 +1,16 @@
+<ul>
+    {{#each burger}}
+        
+        <li>
+            {{this.name}}
+        </li>
+    
+
+    <form action="/{{this.id}}?_method=PUT" method="POST">
+        <input type="hidden" name="devoured" value="true">
+        <button type="submit"> DEVOUR IT!</button>
+    </form>
+
+    {{/each}}
+</ul>
+
