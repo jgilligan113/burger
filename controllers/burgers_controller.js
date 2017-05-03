@@ -3,7 +3,7 @@ var router = express.Router();
 
 var burger = require("../models/burger.js");
 
-router.get("/", function(){
+router.get("/", function(req, res){
     burger.all(function(data) {
         var burger = {
             burger: data
@@ -12,5 +12,7 @@ router.get("/", function(){
     res.render("index", burger);
     })
 });
+
+
 
 module.exports = router;
