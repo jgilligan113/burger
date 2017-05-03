@@ -13,6 +13,16 @@ router.get("/", function(req, res){
     })
 });
 
+router.put("/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
 
+  console.log("condition", condition);
+
+  burger.update({
+    devoured: req.body.devoured
+  }, condition, function() {
+    res.redirect("/");
+  });
+});
 
 module.exports = router;

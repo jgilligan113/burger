@@ -1,5 +1,26 @@
 var connection = require('./connection');
+function printQuestionMarks(num) {
+  var arr = [];
 
+  for (var i = 0; i < num; i++) {
+    arr.push("?");
+  }
+
+  return arr.toString();
+}
+
+// Helper function for SQL syntax.
+function objToSql(ob) {
+  var arr = [];
+
+  for (var key in ob) {
+    if (Object.hasOwnProperty.call(ob, key)) {
+      arr.push(key + "=" + ob[key]);
+    }
+  }
+
+  return arr.toString();
+}
 //create orm object 
 var orm = {
 //create queryies for each need in application:
@@ -15,15 +36,21 @@ selectAll: function(tableName, cb) {
         cb(result);
         });
     },
-updateOne: function(tableName, columnName, cb) {
+updateOne: function(table, objColVals, condition, cb) {
     //create query string - build using variable 
-    var queryString ="UPDATE ?? SET devoured = true WHERE id = 2";
-    //connect to database using exported connection
-    connection.query(queryString, [tableName, columnName], function(err, result) {
-        if (err) throw err
-        console.log("here is the set devoured statement hardcoded to id 2");
-        console.log("--------------------------------");
-        console.log(result);
+   var queryString = "UPDATE " + table;
+
+    queryString += " SET ";
+    queryString += objToSql(objColVals);
+    queryString += " WHERE ";
+    queryString += condition;
+
+    console.log(queryString);
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+
         cb(result);
         });
     },
