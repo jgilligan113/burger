@@ -6,8 +6,9 @@ var burger = {
             cb(res);
         });
     },
-    insert: function(tableName, columnName1, columnName2, value1, value2, cb) {
-        orm.insertOne("burgers", columnName1, columnName2, value1, "false", function() {
+    insert: function(value1, cb) {
+        console.log("value1: ", value1);
+        orm.insertOne("burgers", "burger_name", "devoured", value1, false, function(req, res) {
             cb(res);
         });
     },

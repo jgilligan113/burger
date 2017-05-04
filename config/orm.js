@@ -56,7 +56,7 @@ updateOne: function(table, objColVals, condition, cb) {
     },
 insertOne: function(tableName, columnName1, columnName2, value1, value2, cb) {
     //create query string - build using variable
-    var queryString ="INSERT INTO ?? (?, ?) VALUES (?, ?);; ";
+    var queryString ="INSERT INTO ?? (??, ??) VALUES (?, ?); ";
     //connect to database using exported connection
     connection.query(queryString, [tableName, columnName1, columnName2, value1, value2], function(err, result) {
         if (err) throw err
@@ -64,6 +64,5 @@ insertOne: function(tableName, columnName1, columnName2, value1, value2, cb) {
         cb(result);
         });
     }
-   
 }
 module.exports = orm;

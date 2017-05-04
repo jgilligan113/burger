@@ -25,4 +25,13 @@ router.put("/:id", function(req, res) {
   });
 });
 
+router.post("/", function(req, res) {
+    console.log("before insert: this is before burger.insert - req.body.burger_name: ", req.body.burger_name),
+    burger.insert(req.body.burger_name,
+    function(){
+        res.redirect("/")
+    });
+});
+
+
 module.exports = router;
