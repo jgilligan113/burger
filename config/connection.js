@@ -11,6 +11,7 @@ if (process.env.JAWSDB_URL) {
   password: "entropy04",
   database: "burgers_db"
 });
+}
 
 // Make connection.
 connection.connect(function(err) {
