@@ -3,4 +3,4 @@ INSERT INTO burgers (burger_name, devoured) VALUES ("veggie tofu cheeseburger", 
 INSERT INTO burgers (burger_name, devoured) VALUES ("philly cheese steak cheeseburger", false);
 INSERT INTO burgers (burger_name, devoured) VALUES ("french onion provolone burger", false);
 INSERT INTO burgers (burger_name, devoured) VALUES ("fried green tomato and pimento cheeseburger", false);
-INSERT INTO burgers (burger_name, devoured) VALUES ("wimpy's tomorrow for today cheeseburger", false);
+INSERT INTO burgers (burger_name, devoured) VALUES ("wimpy's today for tomorrow cheeseburger", false);
