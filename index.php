@@ -1,1 +1,1 @@
-<?php include_once("main.handlebars"); ?>
+<?php include_once("test.html"); ?>
